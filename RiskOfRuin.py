@@ -7,6 +7,7 @@ win = 2
 lose = -1
 
 
+
 ruin = 0
 for i in range(runs):
 	br_diff = (win-lose)*np.random.random_integers(0,1,size=(max_games))+lose
