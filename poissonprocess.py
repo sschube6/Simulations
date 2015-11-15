@@ -1,6 +1,6 @@
 '''
 Poisson Process
-This scripts simulates a poisson process. Individual events are arriving with an average rate k within the time [tstart, tend]. The distribution as well as a histogram of the waiting times dt is plotted.
+This scripts simulates a poisson process. Individual events are arriving with an average rate k within the time [tstart, tend). The distribution as well as a histogram of the waiting times dt is plotted.
 '''
 
 import numpy as np
@@ -10,14 +10,8 @@ tstart = 0
 tend = 100
 k = 1
 
-u = np.random.rand(int((tend-tstart)*k*10))
-while(True):
-    iszero = (u == 0)
-    if iszero.any():
-        u[iszero] = np.random.rand(sum(iszero))
-        print sum(iszero)
-    else:
-        break
+# generate random numbers u uniformly in [0, 1)
+u = 1 - np.random.rand(int((tend-tstart)*k*10))
 dt = -(1.0/k)*np.log(u)
 t = tstart+np.cumsum(dt)
 t = t[t < tend]
