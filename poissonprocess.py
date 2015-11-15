@@ -10,7 +10,7 @@ tstart = 0
 tend = 100
 k = 1
 
-# generate random numbers u uniformly in [0, 1)
+# generate random numbers u uniformly in (0, 1]
 u = 1 - np.random.rand(int((tend-tstart)*k*10))
 dt = -(1.0/k)*np.log(u)
 t = tstart+np.cumsum(dt)
